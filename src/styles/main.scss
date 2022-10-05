@@ -1,0 +1,133 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 14px;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("night.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: grid;
+  grid-template: 200px 1fr 200px / repeat(2, 1fr);
+  .form-container {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    form {
+      color: #fff;
+      display: flex;
+      padding: 2px;
+      border: 1px solid grey;
+      border-radius: 5px;
+      input[type="search"] {
+        border: none;
+        background: transparent;
+        margin: 0;
+        padding: 7px 8px;
+        font-size: 20px;
+        font-weight: bold;
+        color: inherit;
+        border: 1px solid transparent;
+        border-radius: inherit;
+      }
+      input[type="search"]::placeholder {
+        color: #fff;
+        opacity: 0.6;
+      }
+
+      button[type="submit"] {
+        text-indent: -999px;
+        overflow: hidden;
+        width: 40px;
+        padding: 0;
+        margin: 0;
+        border: 1px solid transparent;
+        border-radius: inherit;
+        background: transparent
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
+          no-repeat center;
+        cursor: pointer;
+        opacity: 0.7;
+        background-color: white;
+      }
+
+      button[type="submit"]:hover {
+        opacity: 1;
+      }
+      button[type="submit"]:focus,
+      input[type="search"]:focus {
+        box-shadow: 0 0 3px 0 #1183d6;
+        border-color: #1183d6;
+        outline: none;
+      }
+    }
+  }
+  .info {
+    width: 60%;
+    grid-area: 2/1/3/3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-self: center;
+    .info-right {
+      grid-area: 1/1/2/2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      > * {
+        color: white;
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .city-flag {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .city {
+          font-size: 5rem;
+        }
+        .flag {
+          margin-left: 1.5rem;
+          img {
+            width: 70px;
+          }
+        }
+      }
+      .type {
+        font-size: 3rem;
+      }
+      .hour {
+        font-size: 1.5rem;
+      }
+      .temp {
+        font-size: 6rem;
+      }
+    }
+    .info-left {
+      grid-area: 1/2/2/3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      .add-info {
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 10px;
+      }
+      .add-info > * {
+        font-size: 3rem;
+      }
+    }
+  }
+}
