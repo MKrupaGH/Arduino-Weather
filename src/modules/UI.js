@@ -14,19 +14,51 @@ export function viewPage() {
   const clouds = document.querySelector(".clouds");
   const btn = document.querySelector("button");
   const inputValue = document.querySelector("#city");
+  const errorS = document.querySelector(".error");
 
-  getObj();
+  const info = document.querySelector(".info");
+
+  const form = document.querySelector("form");
+
+  (function startSetUp() {
+    animation();
+    getObj();
+  })();
+
   (function addListener() {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
+      animation();
       getObj();
+      clear();
     });
   })();
 
   function getObj() {
-    getWeatherData(inputValue.value).then((result) => {
-      processData(result);
+    getWeatherData(inputValue.value).then((response) => {
+      if (response.status === "success") {
+        errorS.textContent = response.message;
+        getNeedData(response);
+      } else {
+        errorS.textContent = response.message;
+      }
     });
+  }
+
+  function getNeedData(response) {
+    const obj = {
+      flag: response.flag.url,
+      city: response.data.name,
+      timezone: response.data.timezone,
+      temp: response.data.main.temp,
+      weatherType: response.data.weather[0].description,
+      fellTemp: response.data.main["feels_like"],
+      hum: response.data.main.humidity,
+      pressure: response.data.main.pressure,
+      wind: response.data.wind.speed,
+      clouds: response.data.clouds.all,
+    };
+    processData(obj);
   }
 
   function processData(result) {
@@ -88,5 +120,19 @@ export function viewPage() {
     press.textContent = obj.pressure;
     wind.textContent = obj.wind;
     clouds.textContent = obj.clouds;
+  }
+
+  function clear() {
+    form.reset();
+  }
+
+  function animation() {
+    if (info.classList.contains("face-in")) {
+      info.classList.remove("face-in");
+      info.offsetWidth;
+      info.classList.add("face-in");
+    } else {
+      info.classList.add("face-in");
+    }
   }
 }

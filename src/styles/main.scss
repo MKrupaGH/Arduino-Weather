@@ -71,6 +71,11 @@
         outline: none;
       }
     }
+    .error {
+      padding: 5px;
+      font-size: 1.3rem;
+      color: red;
+    }
   }
   .info {
     width: 60%;
@@ -131,6 +136,9 @@
         font-size: 3rem;
       }
     }
+  }
+  .face-in {
+    animation: face-in 2s;
   }
 }
 
@@ -200,5 +208,17 @@
         margin-bottom: 40px;
       }
     }
+  }
+}
+
+@keyframes face-in {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
