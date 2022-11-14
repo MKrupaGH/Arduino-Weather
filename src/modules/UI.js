@@ -12,6 +12,21 @@ export function viewPage() {
 
   const info = document.querySelector(".info");
 
+  const charWindow = document.querySelector(".chart-window");
+  const arrow = document.querySelector(".arrow-btn");
+
+  arrow.addEventListener("click", showWindow);
+  function showWindow() {
+    charWindow.classList.toggle("show");
+    charWindow.classList.toggle("hide");
+    arrow.classList.toggle("left");
+    arrow.classList.toggle("right");
+    for (let i = 0; i < arrow.children.length; i++) {
+      let child = arrow.children[i];
+      child.classList.toggle("to-arrow");
+    }
+  }
+
   (function startSetUp() {
     animation();
     getObj();
