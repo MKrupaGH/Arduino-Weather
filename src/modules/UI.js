@@ -17,8 +17,8 @@ export function viewPage() {
 
   const pmWindow = document.querySelector(".pm-window");
   const circle = document.querySelector(".circle-btn");
-
-  const pm = document.querySelector(".pm");
+  const pm = document.querySelectorAll(".circle-box");
+  const pmType = document.querySelectorAll(".pm-type");
 
   arrow.addEventListener("click", showWindow);
   function showWindow() {
@@ -41,9 +41,13 @@ export function viewPage() {
   }
 
   function showPM(pms) {
-    for (let i = 0; i < pm.children.length; i++) {
-      let child = pm.children[i];
+    console.log(pms);
+    for (let i = 0; i < pm.length; i++) {
+      let child = pm[i].children[0];
+      let type = pmType[i];
       if (child.classList.contains("pm1")) {
+        type.textContent = "PM 1";
+        child.innerHTML = `<span>${pms.pm1}</span>`;
         //child.style.width = pms.pm1 * 5 + "px";
         //child.style.height = pms.pm1 * 5 + "px";
         child.style.backgroundImage =
@@ -51,7 +55,8 @@ export function viewPage() {
       } else if (child.classList.contains("pm25")) {
         //child.style.width = pms.pm25 * 5 + "px";
         //child.style.height = pms.pm25 * 5 + "px";
-
+        type.textContent = "PM 2,5";
+        child.innerHTML = `<span>${pms.pm25}</span>`;
         if (pms.pm25 <= 20) {
           child.style.backgroundImage =
             "radial-gradient(transparent, lightgreen, lightgreen)";
@@ -65,6 +70,8 @@ export function viewPage() {
             "radial-gradient(transparent, red, red)";
         }
       } else if (child.classList.contains("pm10")) {
+        type.textContent = "PM 10";
+        child.innerHTML = `<span>${pms.pm10}</span>`;
         //child.style.width = pms.pm10 * 5 + "px";
         //child.style.height = pms.pm10 * 5 + "px";
 

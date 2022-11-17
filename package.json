@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "bootstrap-icons": "^1.9.1",
+    "chart.js": "^4.0.1",
     "moment-timezone": "^0.5.37",
     "sass": "^1.54.5"
   }

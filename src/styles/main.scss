@@ -27,19 +27,37 @@
       display: flex;
       flex-direction: row;
       justify-content: space-around;
+      align-items: center;
       .pm-box {
         width: 30%;
-        background-color: red;
+        height: 90%;
+        margin: 0px;
         .pm-type {
           height: 30%;
-          background-color: wheat;
-          margin-bottom: 10%;
+          color: white;
+          font-size: 2rem;
+          font-weight: 500;
+          text-align: center;
+          padding-top: 20px;
         }
 
-        .pm-circle {
-          height: 60%;
-          border-radius: 50%;
-          background-color: green;
+        .circle-box {
+          height: 70%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .pm-circle {
+            width: 60%;
+            height: 0;
+            padding-bottom: 60%;
+            border-radius: 50%;
+            text-align: center;
+            vertical-align: middle;
+            span {
+              color: white;
+              font-size: 2rem;
+            }
+          }
         }
       }
     }
@@ -53,7 +71,6 @@
       gap: 5px;
       justify-content: center;
       align-items: center;
-
       &:hover {
         cursor: pointer;
         background-color: rgba($color: #1183d6, $alpha: 0.7);
@@ -61,8 +78,8 @@
       }
 
       .circle-bar {
-        width: 5px;
-        height: 5px;
+        width: 10px;
+        height: 10px;
         background-color: white;
         border-radius: 50%;
       }
