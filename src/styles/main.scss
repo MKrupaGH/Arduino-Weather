@@ -104,6 +104,14 @@
       width: 95%;
       background-color: rgba(119, 119, 119, 0.8);
       border-radius: 0px 10px 10px 0px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      .chart {
+        width: 80%;
+        height: 50%;
+      }
     }
     .arrow-btn {
       height: 30%;
