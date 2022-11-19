@@ -7,15 +7,28 @@ export async function getWeatherData() {
       "https://shocking-coffin-88092.herokuapp.com/catalog/values/newest",
       { mode: "cors" }
     );
+    const hoursValue = await fetch(
+      "https://shocking-coffin-88092.herokuapp.com/catalog/values/avg",
+      { mode: "cors" }
+    );
 
     const data = await dataJSON.json();
-
     const newestMongo = await dataMongo.json();
+    const hoursVal = await hoursValue.json();
+
     const flag = await fetch(
       `https://countryflagsapi.com/png/${data.sys.country}`,
       { mode: "cors" }
     );
-    return { status: "success", message: "", data, flag, newestMongo };
+
+    return {
+      status: "success",
+      message: "",
+      data,
+      flag,
+      newestMongo,
+      hoursVal,
+    };
   } catch (error) {
     return {
       status: "failed",

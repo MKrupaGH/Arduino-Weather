@@ -76,15 +76,15 @@ export function viewPage() {
         //child.style.width = pms.pm10 * 5 + "px";
         //child.style.height = pms.pm10 * 5 + "px";
 
-        if (pms.pm25 <= 40) {
+        if (pms.pm10 <= 40) {
           child.style.backgroundImage =
             "radial-gradient(transparent, lightgreen, lightgreen)";
         }
-        if (pms.pm25 > 40 && pms.pm25 < 50) {
+        if (pms.pm10 > 40 && pms.pm25 < 50) {
           child.style.backgroundImage =
             "radial-gradient(transparent, yellow, yellow)";
         }
-        if (pms.pm25 >= 50) {
+        if (pms.pm10 >= 50) {
           child.style.backgroundImage =
             "radial-gradient(transparent, red, red)";
         }
@@ -104,6 +104,7 @@ export function viewPage() {
   }
 
   function getNeedData(response) {
+    console.log(response);
     const obj = {
       flag: response.flag.url,
       city: response.data.name,
@@ -210,6 +211,8 @@ export function viewPage() {
       ],
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: false,
       title: {
         display: true,
         text: "World population per region (in millions)",
